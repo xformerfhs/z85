@@ -21,8 +21,8 @@ Therefore, it can only be used with binary data which has a byte length which is
 > Data that does not have a length which is a multiple of 4 cannot be encoded.
 > It is the duty of the calling application to pad such data and handle the padding and unpadding.
 
-There is a benchmark in this package that shows that Z85 encoding needs about 90% more CPU than Base64 and 67% more CPU than Base32.
-The reason for this is that Z85 uses division while the Base32 and Base64 algorithms need only bit shifting, bit masking and bit or-ing which are a lot faster than division.
+A benchmark shows that Z85 encoding needs about 90% more CPU than Base64 and 67% more CPU than Base32.
+The reason for this is that Z85 uses division or scaled multiplication while the Base32 and Base64 algorithms need only bit shifting, bit masking and bit or-ing which are a lot faster than division.
 
 ## Functions
 

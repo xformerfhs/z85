@@ -31,10 +31,10 @@ package z85_test
 import (
 	"bytes"
 	crand "crypto/rand"
-	"math/rand/v2"
+	"github.com/xformerfhs/z85"
+	"math/rand"
 	"strings"
 	"testing"
-	"z85"
 )
 
 // ******** Private constants ********
@@ -57,7 +57,7 @@ const maxSliceSize = 128
 func TestGeneral(t *testing.T) {
 	buffer := make([]byte, maxSliceSize)
 	for i := 0; i < iterationCount; i++ {
-		chunkLen := rand.Int32N(maxSliceSize>>2) + 1
+		chunkLen := rand.Int31n(maxSliceSize>>2) + 1
 		testSlice := buffer[:chunkLen<<2]
 		_, _ = crand.Read(testSlice)
 
